@@ -1,122 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Presupuestos</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      width: 50%;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    input, select {
-      display: block;
-      margin-bottom: 10px;
-      padding: 5px;
-      width: 100%;
-    }
-    label {
-      font-weight: bold;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    select[multiple] {
-      height: 150px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Presupuestos Quirúrgicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .result span {
+            font-weight: bold;
+        }
+        .details {
+            margin-bottom: 20px;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Calculadora de Presupuestos</h1>
 
-    <label for="procedure">Procedimientos (mantén presionada la tecla Ctrl o Cmd para seleccionar varios):</label>
-    <select id="procedure" multiple>
-      <option value="250" data-anesthesia="250">Rinoplastía (250 USD)</option>
-      <option value="350" data-anesthesia="350">Rinoplastía + ORL / Rino secundaria (350 USD)</option>
-      <option value="400" data-anesthesia="400">Rinoplastía con costilla (400 USD)</option>
-      <option value="200" data-anesthesia="200">Prótesis mamarias (200 USD)</option>
-      <option value="250" data-anesthesia="250">Recambio de prótesis (250 USD)</option>
-      <option value="300" data-anesthesia="300">Recambio + reducción / PEXIA (300 USD)</option>
-      <option value="220" data-anesthesia="220">Implantes mamarios con PEXIA periareolar (220 USD)</option>
-      <option value="300" data-anesthesia="300">Implantes mamarios con PEXIA T (300 USD)</option>
-      <option value="300" data-anesthesia="300">Mastopexia sin prótesis (300 USD)</option>
-      <option value="300" data-anesthesia="300">Gigantomastia / Reducción mamaria / Transgénero (300 USD)</option>
-      <option value="200" data-anesthesia="200">Ginecomastia (200 USD)</option>
-      <option value="300" data-anesthesia="300">Lipo de abdomen flanco y dorso (300 USD)</option>
-      <option value="350" data-anesthesia="350">Lipo de abdomen flanco dorso / muslos (350 USD)</option>
-      <option value="300" data-anesthesia="300">Dermolipectomía abdominal sin lipoaspiración (300 USD)</option>
-      <option value="250" data-anesthesia="250">Dermolipectomía de muslos (250 USD)</option>
-      <option value="250" data-anesthesia="250">Dermolipectomía braquial (250 USD)</option>
-      <option value="400" data-anesthesia="400">Dermolipectomía con lipo (400 USD)</option>
-      <option value="300" data-anesthesia="300">Lifting facial y cuello (300 USD)</option>
-      <option value="450" data-anesthesia="450">Lifting facial con blefaroplastía (450 USD)</option>
-      <option value="200" data-anesthesia="200">Blefaroplastía (200 USD)</option>
-      <option value="300" data-anesthesia="300">Blefaroplastía con transferencia grasa (300 USD)</option>
-      <option value="200" data-anesthesia="200">Auriculoplastía (200 USD)</option>
-      <option value="200" data-anesthesia="200">Bichectomía (200 USD)</option>
-      <option value="200" data-anesthesia="200">Vulvoplastía (200 USD)</option>
-    </select>
+<div class="container">
+    <h1>Calculadora de Presupuestos Quirúrgicos</h1>
+    
+    <div class="details">
+        <p><strong>Procedimientos (seleccione uno o varios):</strong></p>
+        <select id="procedure" multiple>
+            <option value="200" data-anesthesia="200">Aumento Mamario</option>
+            <option value="250" data-anesthesia="250">Recambio de implantes</option>
+            <option value="300" data-anesthesia="300">Recambio de implantes más reducción o pexia</option>
+            <option value="220" data-anesthesia="220">Implantes mamarios con pexia periareolar</option>
+            <option value="300" data-anesthesia="300">Implantes mamarios con pexia en T</option>
+            <option value="300" data-anesthesia="300">Mastopexia sin implantes</option>
+            
+            <option value="150" data-anesthesia="150">Lipo de Abdomen</option>
+            <option value="180" data-anesthesia="180">Lipo de Muslos</option>
+            <option value="300" data-anesthesia="300">Gigantomastia - Reducción Mamaria - Transgénero</option>
+            <option value="200" data-anesthesia="200">Ginecomastia</option>
+            <option value="250" data-anesthesia="250">Rinoplastía</option>
+            <option value="350" data-anesthesia="350">Rinoplastía con ORL o Rino secundaria</option>
+            <option value="400" data-anesthesia="400">Rinoplastía con costilla</option>
+            <option value="200" data-anesthesia="200">Blefaroplastía</option>
+            <option value="200" data-anesthesia="200">Otoplastía</option>
+            <option value="300" data-anesthesia="300">Abdominoplastía</option>
+            <option value="400" data-anesthesia="400">Abdominoplastía con lipo de abdomen</option>
+            <option value="250" data-anesthesia="250">Dermolipectomía de brazos</option>
+            <option value="300" data-anesthesia="300">Lipo de abdomen, flancos y dorso</option>
+            <option value="250" data-anesthesia="250">Dermolipectomía de muslos</option>
+            <option value="300" data-anesthesia="300">Lifting Facial y cuello</option>
+            <option value="450" data-anesthesia="450">Lifting Facial y párpados</option>
+            <option value="200" data-anesthesia="200">Bichectomía</option>
+        </select>
 
-    <label for="hours">Duración de la cirugía (en horas):</label>
-    <input type="number" id="hours" min="1" value="1">
+        <p><strong>Duración de la cirugía (en horas):</strong></p>
+        <input type="number" id="hours" min="1" value="1">
 
-    <label for="vaser">¿Usa VASER?:</label>
-    <input type="checkbox" id="vaser">
+        <p><strong>¿Se usa VASER?</strong></p>
+        <input type="checkbox" id="vaser">
 
-    <label for="earnings">Honorarios deseados (en USD):</label>
-    <input type="number" id="earnings" min="0" value="0">
+        <p><strong>Honorarios Quirúrgicos (en USD):</strong></p>
+        <input type="number" id="earnings" min="0" value="0">
+    </div>
 
     <button onclick="calculate()">Calcular Presupuesto</button>
 
-    <h3>Presupuesto Total: <span id="total">0</span> USD</h3>
-    <h3>Desglose:</h3>
-    <p>Honorarios quirúrgicos: <span id="surgicalEarnings">0</span> USD</p>
-    <p>Costo de quirófano: <span id="operatingRoom">0</span> USD</p>
-    <p>Costo de anestesia: <span id="anesthesia">0</span> USD</p>
-    <p>Costo de VASER: <span id="vaserCost">0</span> USD</p>
-    <p>Equipo quirurgico: <span id="otherCosts">0</span> USD</p>
-  </div>
+    <div class="result">
+        <h2>Desglose del Presupuesto:</h2>
+        <p>Total: <span id="total">0</span> USD</p>
+        <p>Procedimientos: <span id="procedureList">Ninguno</span></p>
+        <p>Duración de la cirugía: <span id="surgeryDuration">0</span> horas</p>
+        <p>¿Se usó VASER?: <span id="vaserUsed">No</span></p>
+        <p>Honorarios Quirúrgicos (incluye 50 USD de la secretaria): <span id="surgicalEarnings">0</span> USD</p>
+        <p>Quirófano: <span id="operatingRoom">0</span> USD</p>
+        <p>Anestesia: <span id="anesthesia">0</span> USD</p>
+        <p>Instrumentadora: <span id="otherCosts">0</span> USD</p>
+    </div>
+</div>
 
-  <script>
-    function calculate() {
-      // Obtener los valores del formulario
-      let procedures = document.getElementById('procedure');
-      let selectedProcedures = Array.from(procedures.selectedOptions);
-      let procedureCost = selectedProcedures.reduce((sum, option) => sum + parseInt(option.value), 0);
+<script>
+  function calculate() {
+    // Obtener los valores del formulario
+    let procedures = document.getElementById('procedure');
+    let selectedProcedures = Array.from(procedures.selectedOptions);
+    
+    // Calcular el costo de los procedimientos seleccionados (incluyen anestesia)
+    let procedureCost = selectedProcedures.reduce((sum, option) => sum + parseInt(option.value), 0);
+    
+    // Obtener los nombres de los procedimientos seleccionados
+    let procedureList = selectedProcedures.map(option => option.text).join(", ");
 
-      // Obtener solo el costo de anestesia una vez por cada procedimiento
-      let anesthesiaCost = selectedProcedures.reduce((sum, option) => sum + parseInt(option.getAttribute('data-anesthesia')), 0);
+    // Solo mostrar el desglose del costo de anestesia
+    let anesthesiaCost = selectedProcedures.reduce((sum, option) => sum + parseInt(option.getAttribute('data-anesthesia')), 0);
 
-      let hours = parseInt(document.getElementById('hours').value);
-      let vaserChecked = document.getElementById('vaser').checked;
-      let earnings = parseInt(document.getElementById('earnings').value) + 50; // Incluye 50 USD de la secretaria
+    let hours = parseInt(document.getElementById('hours').value);
+    let vaserChecked = document.getElementById('vaser').checked;
+    let earnings = parseInt(document.getElementById('earnings').value) + 50; // Incluye 50 USD de la secretaria
 
-      // Costos fijos
-      let operatingRoomCost = hours * 180; // 180 USD por hora de quirófano
-      let instrumentCost = hours * 50; // 50 USD por hora para instrumentadora
-      let vaserCost = vaserChecked ? 500 : 0; // 500 USD si se usa VASER
+    // Costos fijos
+    let operatingRoomCost = hours * 180; // 180 USD por hora de quirófano
+    let instrumentCost = hours * 50; // 50 USD por hora para instrumentadora
+    let vaserCost = vaserChecked ? 500 : 0; // 500 USD si se usa VASER
 
-      // Calcular el total
-      let totalCost = procedureCost + operatingRoomCost + anesthesiaCost + instrumentCost + vaserCost + earnings;
+    // Calcular el total correctamente (NO sumar anestesia dos veces)
+    let totalCost = procedureCost + operatingRoomCost + instrumentCost + vaserCost + earnings;
 
-      // Mostrar el total y desglose en la página
-      document.getElementById('total').innerText = totalCost;
-      document.getElementById('surgicalEarnings').innerText = earnings;
-      document.getElementById('operatingRoom').innerText = operatingRoomCost;
-      document.getElementById('anesthesia').innerText = anesthesiaCost;
-      document.getElementById('vaserCost').innerText = vaserCost;
-      document.getElementById('otherCosts').innerText = instrumentCost;
-    }
-  </script>
+    // Mostrar el desglose
+    document.getElementById('total').innerText = totalCost;
+    document.getElementById('procedureList').innerText = procedureList || "Ninguno";
+    document.getElementById('surgeryDuration').innerText = hours;
+    document.getElementById('vaserUsed').innerText = vaserChecked ? "Sí" : "No";
+    document.getElementById('surgicalEarnings').innerText = earnings;
+    document.getElementById('operatingRoom').innerText = operatingRoomCost;
+    document.getElementById('anesthesia').innerText = anesthesiaCost;
+    document.getElementById('otherCosts').innerText = instrumentCost;
+  }
+</script>
+
 </body>
 </html>
