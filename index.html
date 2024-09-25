@@ -119,7 +119,7 @@
     // Mostrar el desglose
     document.getElementById('total').innerText = totalCost;
     document.getElementById('procedureList').innerText = procedureList || "Ninguno";
-    document.getElementById('surgeryDuration').innerText = hours + " horas (Costo: " + (hours * 180) + " USD)";
+    document.getElementById('surgeryDuration').innerText = `${hours} (Costo: ${operatingRoomCost} USD)`;
     document.getElementById('vaserUsed').innerText = vaserChecked ? "Sí (Costo: 500 USD)" : "No";
     document.getElementById('surgicalEarnings').innerText = earnings;
     document.getElementById('operatingRoom').innerText = operatingRoomCost;
