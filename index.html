@@ -126,12 +126,11 @@
         <p>¿Se usó VASER?: <span id="vaserUsed">No</span></p>
         <p>Honorarios Quirúrgicos (incluye 50 USD de la secretaria): <span id="surgicalEarnings">0</span> USD</p>
         <p>Quirófano: <span id="operatingRoom">0</span> USD</p>
-        <p>Anestesia: <span id="anesthesia">0</span> USD</p>
         <p>Instrumentadora: <span id="otherCosts">0</span> USD</p>
     </div>
 
     <!-- Imagen que aparecerá al calcular -->
-    <img src="./img/tocadaporfyp.png" alt="Imagen" class="small-image" id="calculationImage">
+    <img src="./tocadaporfyp.png" alt="Imagen" class="small-image" id="calculationImage">
 </div>
 
 <script>
@@ -140,14 +139,11 @@
     let procedures = document.getElementById('procedure');
     let selectedProcedures = Array.from(procedures.selectedOptions);
     
-    // Calcular el costo de los procedimientos seleccionados (incluyen anestesia)
+    // Calcular el costo de los procedimientos seleccionados
     let procedureCost = selectedProcedures.reduce((sum, option) => sum + parseInt(option.value), 0);
     
     // Obtener los nombres de los procedimientos seleccionados
     let procedureList = selectedProcedures.map(option => option.text).join(", ");
-
-    // Solo mostrar el desglose del costo de anestesia
-    let anesthesiaCost = selectedProcedures.reduce((sum, option) => sum + parseInt(option.getAttribute('data-anesthesia')), 0);
 
     let hours = parseInt(document.getElementById('hours').value);
     let vaserChecked = document.getElementById('vaser').checked;
@@ -158,7 +154,7 @@
     let instrumentCost = hours * 50; // 50 USD por hora para instrumentadora
     let vaserCost = vaserChecked ? 500 : 0; // 500 USD si se usa VASER
 
-    // Calcular el total correctamente (NO sumar anestesia dos veces)
+    // Calcular el total
     let totalCost = procedureCost + operatingRoomCost + instrumentCost + vaserCost + earnings;
 
     // Mostrar el desglose
@@ -168,16 +164,11 @@
     document.getElementById('vaserUsed').innerText = vaserChecked ? "Sí (Costo: 500 USD)" : "No";
     document.getElementById('surgicalEarnings').innerText = earnings;
     document.getElementById('operatingRoom').innerText = operatingRoomCost;
-    document.getElementById('anesthesia').innerText = anesthesiaCost;
     document.getElementById('otherCosts').innerText = instrumentCost;
 
     // Mostrar la imagen cuando se calcula
     document.getElementById('calculationImage').style.display = 'block';
   }
-</script>
-
-</body>
-</html>
 </script>
 
 </body>
