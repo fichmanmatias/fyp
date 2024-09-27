@@ -56,43 +56,49 @@
     .result p {
         margin: 10px 0;
     }
-        /* Responsividad para móviles */
-@media only screen and (max-width: 600px) {
-    body {
-        margin: 10px;
+    
+    /* Responsividad para móviles */
+    @media only screen and (max-width: 600px) {
+        body {
+            margin: 10px;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 10px;
+        }
+
+        .details p {
+            font-size: 14px;
+        }
+
+        .result h2 {
+            font-size: 18px;
+        }
+
+        .result p {
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+        }
+
+        /* Imagen pequeña para móviles */
+        .small-image {
+            width: 100px;
+        }
     }
 
-    .container {
-        max-width: 100%;
-        padding: 10px;
+    /* Estilo de la imagen más grande en escritorio */
+    .small-image {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 200px; /* Tamaño más grande en escritorio */
+        display: none;
     }
-
-    .details p {
-        font-size: 14px;
-    }
-
-    .result h2 {
-        font-size: 18px;
-    }
-
-    .result p {
-        font-size: 14px;
-    }
-
-    button {
-        width: 100%;
-        padding: 10px;
-    }
-}
-
-/* Estilo de la imagen pequeña */
-.small-image {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 100px;
-    display: none;
-}
 </style>
 </head>
 <body>
@@ -169,6 +175,10 @@
     // Mostrar la imagen cuando se calcula
     document.getElementById('calculationImage').style.display = 'block';
   }
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
