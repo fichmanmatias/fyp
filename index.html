@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Presupuestos Quirúrgicos Fichman/Piedra Buena</title>
     <style>
-    <style>
     body {
         font-family: 'Helvetica Neue', sans-serif;
         background-color: #f4f4f4;
@@ -85,6 +84,15 @@
         padding: 10px;
     }
 }
+
+/* Estilo de la imagen pequeña */
+.small-image {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    display: none;
+}
 </style>
 </head>
 <body>
@@ -95,30 +103,7 @@
     <div class="details">
         <p><strong>Procedimientos (seleccione uno o varios):</strong></p>
         <select id="procedure" multiple>
-            <option value="200" data-anesthesia="200">Aumento Mamario</option>
-            <option value="250" data-anesthesia="250">Recambio de implantes</option>
-            <option value="300" data-anesthesia="300">Recambio de implantes más reducción o pexia</option>
-            <option value="220" data-anesthesia="220">Implantes mamarios con pexia periareolar</option>
-            <option value="300" data-anesthesia="300">Implantes mamarios con pexia en T</option>
-            <option value="300" data-anesthesia="300">Mastopexia sin implantes</option>
-            
-            <option value="150" data-anesthesia="150">Lipo de Abdomen</option>
-            <option value="180" data-anesthesia="180">Lipo de Muslos</option>
-            <option value="300" data-anesthesia="300">Gigantomastia - Reducción Mamaria - Transgénero</option>
-            <option value="200" data-anesthesia="200">Ginecomastia</option>
-            <option value="250" data-anesthesia="250">Rinoplastía</option>
-            <option value="350" data-anesthesia="350">Rinoplastía con ORL o Rino secundaria</option>
-            <option value="400" data-anesthesia="400">Rinoplastía con costilla</option>
-            <option value="200" data-anesthesia="200">Blefaroplastía</option>
-            <option value="200" data-anesthesia="200">Otoplastía</option>
-            <option value="300" data-anesthesia="300">Abdominoplastía</option>
-            <option value="400" data-anesthesia="400">Abdominoplastía con lipo de abdomen</option>
-            <option value="250" data-anesthesia="250">Dermolipectomía de brazos</option>
-            <option value="300" data-anesthesia="300">Lipo de abdomen, flancos y dorso</option>
-            <option value="250" data-anesthesia="250">Dermolipectomía de muslos</option>
-            <option value="300" data-anesthesia="300">Lifting Facial y cuello</option>
-            <option value="450" data-anesthesia="450">Lifting Facial y párpados</option>
-            <option value="200" data-anesthesia="200">Bichectomía</option>
+            <!-- Opciones -->
         </select>
 
         <p><strong>Duración de la cirugía (en horas):</strong></p>
@@ -144,6 +129,9 @@
         <p>Anestesia: <span id="anesthesia">0</span> USD</p>
         <p>Instrumentadora: <span id="otherCosts">0</span> USD</p>
     </div>
+
+    <!-- Imagen que aparecerá al calcular -->
+    <img src="img/tocadaporfyp.png" alt="Imagen" class="small-image" id="calculationImage">
 </div>
 
 <script>
@@ -182,7 +170,14 @@
     document.getElementById('operatingRoom').innerText = operatingRoomCost;
     document.getElementById('anesthesia').innerText = anesthesiaCost;
     document.getElementById('otherCosts').innerText = instrumentCost;
+
+    // Mostrar la imagen cuando se calcula
+    document.getElementById('calculationImage').style.display = 'block';
   }
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
