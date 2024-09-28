@@ -86,19 +86,21 @@
             padding: 10px;
         }
 
-        /* Imagen en versión móvil más pequeña y reubicada */
+/* Aseguramos que la imagen esté debajo de la caja de texto en dispositivos móviles */
         .small-image {
-            width: 80px;
-            bottom: 120px; /* Más arriba en la pantalla */
+            position: relative;
+            width: 80%;
+            margin: 20px auto 0;
+            display: block;
         }
     }
 
-    /* Estilo de la imagen pequeña en desktop */
+    /* Estilo de la imagen en versión desktop */
     .small-image {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        width: 350px;
+        width: 100px;
         display: none;
     }
     </style>
