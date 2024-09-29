@@ -57,6 +57,13 @@
     .result p {
         margin: 10px 0;
     }
+        /* Estilos para la imagen en version desktop */
+    .desktop-image {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 250px;
+        display: none;
 
     /* Responsividad para móviles */
     @media only screen and (max-width: 600px) {
@@ -86,9 +93,8 @@
             padding: 10px;
         }
 
-/* Aseguramos que la imagen esté debajo de la caja de texto en dispositivos móviles */
-        .small-image {
-            position: relative;
+  /* Imagen debajo del contenido para móvil */
+        .mobile-image {
             width: 80%;
             margin: 20px auto 0;
             display: block;
@@ -163,8 +169,10 @@
     </div>
 
     <!-- Imagen que aparecerá al calcular -->
-    <img src="./tocadaporfyp.png" alt="Imagen" class="small-image" id="calculationImage">
+    <img src="./tocadaporfyp.png" alt="Imagen" class="desktop-image" id="calculationImageDesktop">
+    <img src="./tocadaporfyp.png" alt="Imagen" class="mobile-image" id="calculationImageMobile">
 </div>
+
 
 <script>
   function calculate() {
@@ -202,13 +210,10 @@
     document.getElementById('anesthesia').innerText = anesthesiaCost;
     document.getElementById('otherCosts').innerText = instrumentCost;
 
-    // Mostrar la imagen cuando se calcula
-    document.getElementById('calculationImage').style.display = 'block';
+    // Mostrar las imágenes correspondientes dependiendo de la vista
+    document.getElementById('calculationImageDesktop').style.display = 'block';
+    document.getElementById('calculationImageMobile').style.display = 'none';
   }
-</script>
-
-</body>
-</html>
 </script>
 
 </body>
