@@ -93,22 +93,18 @@
             padding: 10px;
         }
 
-  /* Imagen debajo del contenido para móvil */
+   /* Imagen debajo del contenido para móvil */
         .mobile-image {
             width: 80%;
             margin: 20px auto 0;
             display: block;
+            position: relative; /* Esto asegura que la imagen esté dentro del flujo del contenido */
+        }
+         .result {
+            padding-bottom: 150px; /* Deja espacio suficiente para la imagen en la vista móvil */
         }
     }
 
-    /* Estilo de la imagen en versión desktop */
-    .small-image {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 250px;
-        display: none;
-    }
     </style>
 </head>
 <body>
