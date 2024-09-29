@@ -57,13 +57,6 @@
     .result p {
         margin: 10px 0;
     }
-        /* Estilos para la imagen en version desktop */
-    .desktop-image {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 250px;
-        display: none;
 
     /* Responsividad para móviles */
     @media only screen and (max-width: 600px) {
@@ -93,18 +86,23 @@
             padding: 10px;
         }
 
-   /* Imagen debajo del contenido para móvil */
-        .mobile-image {
+/* Aseguramos que la imagen esté debajo de la caja de texto en dispositivos móviles */
+        .small-image {
+            position: relative;
             width: 80%;
             margin: 20px auto 0;
             display: block;
-            position: relative; /* Esto asegura que la imagen esté dentro del flujo del contenido */
-        }
-         .result {
-            padding-bottom: 150px; /* Deja espacio suficiente para la imagen en la vista móvil */
         }
     }
 
+    /* Estilo de la imagen en versión desktop */
+    .small-image {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 250px;
+        display: none;
+    }
     </style>
 </head>
 <body>
@@ -165,10 +163,8 @@
     </div>
 
     <!-- Imagen que aparecerá al calcular -->
-    <img src="./tocadaporfyp.png" alt="Imagen" class="desktop-image" id="calculationImageDesktop">
-    <img src="./tocadaporfyp.png" alt="Imagen" class="mobile-image" id="calculationImageMobile">
+    <img src="./tocadaporfyp.png" alt="Imagen" class="small-image" id="calculationImage">
 </div>
-
 
 <script>
   function calculate() {
@@ -206,10 +202,13 @@
     document.getElementById('anesthesia').innerText = anesthesiaCost;
     document.getElementById('otherCosts').innerText = instrumentCost;
 
-    // Mostrar las imágenes correspondientes dependiendo de la vista
-    document.getElementById('calculationImageDesktop').style.display = 'block';
-    document.getElementById('calculationImageMobile').style.display = 'none';
+    // Mostrar la imagen cuando se calcula
+    document.getElementById('calculationImage').style.display = 'block';
   }
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
